@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi Em</title>
+    <style>
+        body { background: #0f0f0f; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; font-family: 'Arial', sans-serif; text-align: center; cursor: pointer; overflow: hidden;}
+        
+        .card { padding: 30px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: 0 0 30px rgba(255, 77, 77, 0.1); border: 1px solid rgba(255, 77, 77, 0.2); max-width: 85%; transition: all 0.5s ease; }
+
+        .heart { font-size: 80px; color: #ff4d4d; text-shadow: 0 0 15px #ff4d4d; margin-bottom: 10px; transition: transform 0.3s ease; }
+
+        .tap-text { font-size: 1.2rem; color: #ff4d4d; font-weight: bold; animation: fadeBlink 1.5s infinite; }
+
+        .main-content { display: none; opacity: 0; transition: opacity 1s ease; }
+
+
+        .heart.beating { animation: beat 0.8s infinite alternate; font-size: 70px; /* Nhỏ lại một chút để cân đối */}
+
+        .main-content.show { display: block; opacity: 1; }
+
+        .tap-text.hide { display: none; }
+
+        h2 { color: #ff4d4d; font-size: 1.4rem; margin: 15px 0; }
+        p { line-height: 1.6; font-size: 1rem; margin-bottom: 15px; color: #e0e0e0; }
+        .date { font-size: 0.8rem; color: #888; margin-top: 20px; }
+        .sign { margin-top: 15px; font-weight: bold; color: #ff4d4d; font-size: 1.1rem; }
+
+        @keyframes beat { to { transform: scale(1.2); } }
+        @keyframes fadeBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    </style>
+</head>
+<body onclick="revealContent()">
+
+    <div class="card">
+        <div class="heart" id="heartIcon">❤️</div>
+        <div class="tap-text" id="tapText">Chạm vào</div>
+
+        <div class="main-content" id="mainContent">
+            <h2>Chúc mừng tuổi 22!</h2>
+            <p>Chúc em tuổi 22 nhiều sức khỏe, hạnh phúc và luôn tươi cười. Những hành trình sẽ mang đến cho em sự tích cực.</p>
+            <p>Cả hành trình của hai đứa mình nữa nhé :></p>
+            <div class="date">05/07/2025</div>
+            <div class="sign">"ngiu em"<br>Nguyễn Đức Trí</div>
+        </div>
+    </div>
+
+    <script>
+        function revealContent() {
+            const heart = document.getElementById('heartIcon');
+            const tapText = document.getElementById('tapText');
+            const content = document.getElementById('mainContent');
+
+            heart.classList.add('beating');
+
+            tapText.classList.add('hide');
+            content.classList.add('show');
+            
+            document.body.onclick = null;
+        }
+    </script>
+</body>
+</html>
